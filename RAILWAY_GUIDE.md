@@ -41,10 +41,11 @@ railway status
 
 1. **New** → **GitHub Repo** 선택
 2. **Ensurance_AI_Assistant** 레포지토리 선택
-3. 설정 변경:
-   - **Root Directory**: `backend` 입력
-   - **Build Command**: (자동 감지)
-   - **Start Command**: (자동 감지)
+3. ⚠️ **중요: Settings에서 Root Directory 설정**
+   - **Settings** 탭 클릭
+   - **Root Directory**: `backend` 입력 후 저장
+   - 이 설정을 하지 않으면 "Dockerfile does not exist" 오류 발생!
+4. **Deploy** 시작 (자동으로 Dockerfile 감지)
 
 #### 환경 변수 설정 (Variables 탭)
 ```
@@ -60,8 +61,11 @@ FRONTEND_URL=https://your-frontend.railway.app (나중에 설정)
 
 1. **New** → **GitHub Repo** 선택
 2. **Ensurance_AI_Assistant** 레포지토리 선택 (동일한 레포)
-3. 설정 변경:
-   - **Root Directory**: `frontend` 입력
+3. ⚠️ **중요: Settings에서 Root Directory 설정**
+   - **Settings** 탭 클릭
+   - **Root Directory**: `frontend` 입력 후 저장
+   - 이 설정을 하지 않으면 "Dockerfile does not exist" 오류 발생!
+4. **Deploy** 시작
 
 #### 환경 변수 설정 (Variables 탭)
 ```
@@ -116,6 +120,19 @@ curl -X POST "https://your-backend.railway.app/api/v1/auth/init-admin"
 | **DATABASE_URL** | PostgreSQL 서비스 → Variables 탭 |
 
 ## 🔧 문제 해결
+
+### ❌ "Dockerfile does not exist" 오류
+
+**원인**: Root Directory가 설정되지 않음
+
+**해결 방법**:
+1. Railway 대시보드 → 해당 서비스 선택
+2. **Settings** 탭 클릭
+3. **Root Directory** 필드에 다음 입력:
+   - 백엔드: `backend`
+   - 프론트엔드: `frontend`
+4. **Save** 클릭
+5. **Deploy** 다시 실행
 
 ### 서비스가 시작되지 않을 때
 - 서비스 → **Logs** 탭에서 오류 확인
