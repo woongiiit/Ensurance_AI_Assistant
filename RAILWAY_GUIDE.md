@@ -123,16 +123,18 @@ curl -X POST "https://your-backend.railway.app/api/v1/auth/init-admin"
 
 ### ❌ "Dockerfile does not exist" 오류
 
-**원인**: Root Directory가 설정되지 않음
+**원인**: Root Directory가 설정되지 않았거나 형식이 잘못됨
 
 **해결 방법**:
 1. Railway 대시보드 → 해당 서비스 선택
 2. **Settings** 탭 클릭
-3. **Root Directory** 필드에 다음 입력:
-   - 백엔드: `backend`
-   - 프론트엔드: `frontend`
+3. **Root Directory** 필드 확인:
+   - ❌ 잘못된 형식: `/backend`, `./backend`
+   - ✅ 올바른 형식: `backend` (슬래시 없이!)
 4. **Save** 클릭
-5. **Deploy** 다시 실행
+5. **Deployments** 탭으로 이동
+6. **Deploy** 버튼 클릭 (또는 상단 메뉴에서 **Redeploy**)
+7. 빌드 로그 확인
 
 ### 서비스가 시작되지 않을 때
 - 서비스 → **Logs** 탭에서 오류 확인
