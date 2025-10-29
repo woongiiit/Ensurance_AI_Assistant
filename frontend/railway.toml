@@ -8,3 +8,9 @@ healthcheckTimeout = 100
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
+# 환경 변수 - Railway에서 자동으로 설정
+# 참고: 백엔드 URL은 Railway Variables에서 직접 설정해야 함 (배포 후)
+[variables]
+# NEXT_PUBLIC_API_URL - 백엔드 서비스 배포 후 Railway Variables에서 설정
+# 예: https://your-backend.railway.app
+
