@@ -8,3 +8,14 @@ healthcheckTimeout = 100
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
+# 환경 변수 - Railway에서 자동으로 설정
+# 참고: 민감한 정보(SECRET_KEY, API_KEY 등)는 Railway Variables에서 직접 설정해야 함
+[variables]
+# DATABASE_URL은 Railway PostgreSQL 서비스에서 자동으로 제공됨 (서비스 연결 시)
+# SECRET_KEY - Railway Variables에서 수동 설정 필요
+# GEMINI_API_KEY - Railway Variables에서 수동 설정 필요
+# ADMIN_USERNAME - 기본값 또는 Railway Variables에서 설정
+ADMIN_USERNAME = "admin"
+# ADMIN_PASSWORD - Railway Variables에서 반드시 설정 필요 (기본값 사용 금지)
+# FRONTEND_URL - 프론트엔드 서비스 배포 후 Railway Variables에서 설정
+

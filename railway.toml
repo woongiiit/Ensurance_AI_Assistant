@@ -1,0 +1,10 @@
+# Railway 프로젝트 루트 설정
+# 각 서비스는 backend/railway.toml, frontend/railway.toml에서 관리
+
+[project]
+name = "Ensurance_AI_Assistant"
+
+# 환경 변수 참조 설정
+# 이 파일은 Railway 프로젝트 레벨 설정입니다.
+# 각 서비스별 환경 변수는 backend/railway.toml, frontend/railway.toml에서 설정합니다.
+
