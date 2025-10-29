@@ -11,9 +11,14 @@ from api.v1 import chat, auth, admin
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    # Create tables
-    Base.metadata.create_all(bind=engine)
-    Base.metadata.create_all(bind=vector_engine)
+    try:
+        # Create tables
+        Base.metadata.create_all(bind=engine)
+        Base.metadata.create_all(bind=vector_engine)
+        print("✅ Database tables created successfully")
+    except Exception as e:
+        print(f"⚠️  Warning: Database initialization error: {e}")
+        # Continue anyway - tables might already exist
     yield
     # Shutdown
     pass
